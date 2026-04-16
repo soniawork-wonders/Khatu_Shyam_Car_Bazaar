@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khatu Shyam Car Bazaar | New & Used Cars</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --gold: #ffd700;
+            --light: #f5f5f5;
+            --text: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-nav a {
+            color: white;
+            font-size: 1.2rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-nav a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #ff6b6b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Inventory Grid */
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .car-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .car-badge.used {
+            background: #4a5568;
+        }
+
+        .car-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .car-card:hover .car-image {
+            transform: scale(1.05);
+        }
+
+        .car-info {
+            padding: 1.5rem;
+        }
+
+        .car-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .car-year {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .car-price {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .car-specs {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .car-specs span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .whatsapp-btn {
+            width: 100%;
+            background: #25d366;
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128c7e;
+        }
+
+        /* Owner Section */
+        .owner-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 5rem 2rem;
+        }
+
+        .owner-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .owner-image {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .owner-info h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .owner-title {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .owner-bio {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .review-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+        .stars {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            color: #555;
+            margin-bottom: 1rem;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .review-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--primary);
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-box {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .contact-box:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-box p {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-box a:hover {
+            color: #ff6b6b;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            color: white !important;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .map-link:hover {
+            background: #ff6b6b;
+        }
+
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 999;
+        }
+
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .fab-whatsapp {
+            background: #25d366;
+        }
+
+        .fab-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .fab-facebook {
+            background: #1877f2;
+        }
+
+        .fab-tooltip {
+            position: absolute;
+            right: 70px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .fab:hover .fab-tooltip {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f1e;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-social {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: var(--accent);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .owner-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .owner-image {
+                margin: 0 auto;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .fab-container {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .fab {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Khatu Shyam Car Bazaar</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#new-cars">New Cars</a></li>
+                <li><a href="#used-cars">Used Cars</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="social-nav">
+                    <a href="https://wa.me/919729940324" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/khatu_shyam_car_bazaar?igsh=MTE3ajQ4eWlqbDVuOQ%3D%3D&utm_source=qr" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1E9e6dqdWC/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Find Your Dream Car Today</h1>
+            <p>Premium new & used vehicles at unbeatable prices</p>
+            <div class="cta-buttons">
+                <a href="#new-cars" class="btn btn-primary">
+                    <i class="fas fa-car"></i> View Inventory
+                </a>
+                <a href="tel:+919729940324" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Cars Section -->
+    <section id="new-cars">
+        <h2 class="section-title">New Arrivals</h2>
+        <div class="inventory-grid">
+            <div class="car-card">
+                <span class="car-badge">NEW</span>
+                <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=600" alt="BMW M4" class="car-image">
+                <div class="car-info">
+                    <h3 class="car-title">BMW M4 Competition</h3>
+                    <p class="car-year">2024 Model</p>
+                    <p class="car-price">₹85,00,000</p>
+                    <div class="car-specs">
+                        <span><i class="fas fa-road"></i> 0 km</span>
+                        <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                        <span><i class="fas fa-cog"></i> Auto</span>
+                    </div>
+                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20BMW%20M4%20Competition" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="car-card">
+                <span class="car-badge">NEW</span>
+                <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600" alt="Mercedes C-Class" class="car-image">
+                <div class="car-info">
+                    <h3 class="car-title">Mercedes-Benz C-Class</h3>
+                    <p class="car-year">2024 Model</p>
+                    <p class="car-price">₹55,00,000</p>
+                    <div class="car-specs">
+                        <span><i class="fas fa-road"></i> 0 km</span>
+                        <span><i class="fas fa-gas-pump"></i> Hybrid</span>
+                        <span><i class="fas fa-cog"></i> Auto</span>
+                    </div>
+                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Mercedes%20C-Class" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="car-card">
+                <span class="car-badge">NEW</span>
+                <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=600" alt="Audi A4" class="car-image">
+                <div class="car-info">
+                    <h3 class="car-title">Audi A4 Quattro</h3>
+                    <p class="car-year">2024 Model</p>
+                    <p class="car-price">₹48,00,000</p>
+                    <div class="car-specs">
+                        <span><i class="fas fa-road"></i> 0 km</span>
+                        <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                        <span><i class="fas fa-cog"></i> Auto</span>
+                    </div>
+                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Audi%20A4" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Used Cars Section -->
+    <section id="used-cars" style="background: #f8f9fa;">
+        <h2 class="section-title">Quality Used Cars</h2>
+        <div class="inventory-grid">
+            <div class="car-card">
+                <span class="car-badge used">USED</span>
+                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600" alt="Chevrolet Camaro" class="car-image">
+                <div class="car-info">
+                    <h3 class="car-title">Chevrolet Camaro SS</h3>
+                    <p class="car-year">2021 Model</p>
+                    <p class="car-price">₹42,00,000</p>
+                    <div class="car-specs">
+                        <span><i class="fas fa-road"></i> 15,000 km</span>
+                        <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                        <span><i class="fas fa-cog"></i> Manual</span>
+                    </div>
+                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Chevrolet%20Camaro" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="car-card">
+                <span class="car-badge used">USED</span>
+                <img src="https://images.unsplash.com/photo-1563720360172-67b8f3dce741?auto=format&fit=crop&w=600" alt="Ford Mustang" class="car-image">
+                <div class="car-info">
+                    <h3 class="car-title">Ford Mustang GT</h3>
+                    <p class="car-year">2020 Model</p>
+                    <p class="car-price">₹38,50,000</p>
+                    <div class="car-specs">
+                        <span><i class="fas fa-road"></i> 22,000 km</span>
+                        <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                        <span><i class="fas fa-cog"></i> Auto</span>
+                    </div>
+                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Ford%20Mustang" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="car-card">
+                <span class="car-badge used">USED</span>
+                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600" alt="Honda Civic" class="car-image">
+                <div class="car-info">
+                    <h3 class="car-title">Honda Civic Type R</h3>
+                    <p class="car-year">2022 Model</p>
+                    <p class="car-price">₹35,00,000</p>
+                    <div class="car-specs">
+                        <span><i class="fas fa-road"></i> 8,000 km</span>
+                        <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                        <span><i class="fas fa-cog"></i> Manual</span>
+                    </div>
+                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Honda%20Civic" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Owner Section -->
+    <section class="owner-section">
+        <div class="owner-container">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400" alt="Owner" class="owner-image">
+            <div class="owner-info">
+                <h2>Michael Richardson</h2>
+                <p class="owner-title">Founder & CEO</p>
+                <p class="owner-bio">
+                    With over 25 years of experience in the automotive industry, Michael founded Khatu Shyam Car Bazaar with a simple mission: to provide high-quality vehicles at fair prices with exceptional customer service. His hands-on approach ensures that every car meets our rigorous standards before reaching the showroom floor. Visit us today and experience the Khatu Shyam Car Bazaar difference.
+                </p>
+                <div style="margin-top: 1.5rem;">
+                    <a href="tel:+919729940324" class="btn btn-primary" style="margin-right: 1rem;">
+                        <i class="fas fa-phone"></i> Call Now: 97299 40324
+                    </a>
+                    <a href="mailto:info@khatushyamcarbazaar.com" class="btn btn-secondary" style="border-color: var(--primary); color: var(--primary);">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <h2 class="section-title">Customer Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">
+                    Absolutely fantastic experience! Michael helped me find the perfect BMW within my budget. The entire process was smooth and transparent. Highly recommend Khatu Shyam Car Bazaar to anyone looking for a quality vehicle.
+                </p>
+                <p class="reviewer-name">James Wilson</p>
+                <p class="review-date">Purchased: BMW M4</p>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">
+                    Best dealership in town! The WhatsApp integration made it so easy to ask questions before visiting. The used car I bought was in immaculate condition, just as described. Fair pricing and no hidden fees.
+                </p>
+                <p class="reviewer-name">Sarah Martinez</p>
+                <p class="review-date">Purchased: Honda Civic Type R</p>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="review-text">
+                    Great selection of both new and used cars. The location is easy to find and the staff is knowledgeable. They helped me secure financing quickly. Will definitely return for my next purchase.
+                </p>
+                <p class="reviewer-name">Robert Chen</p>
+                <p class="review-date">Purchased: Mercedes C-Class</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title" style="color: white;">Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-box">
+                <i class="fas fa-phone-alt contact-icon"></i>
+                <h3>Phone</h3>
+                <p>Call us anytime during business hours</p>
+                <a href="tel:+919729940324">+91 97299 40324</a>
+                <br><br>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Mon-Sat: 9AM - 7PM<br>Sunday: Closed</p>
+            </div>
+
+            <div class="contact-box">
+                <i class="fas fa-map-marker-alt contact-icon"></i>
+                <h3>Location</h3>
+                <p>Visit our showroom</p>
+                <a href="https://maps.app.goo.gl/JFkuQZogGNySkvVR8" target="_blank" class="map-link">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
+            </div>
+
+            <div class="contact-box">
+                <i class="fab fa-whatsapp contact-icon"></i>
+                <h3>WhatsApp</h3>
+                <p>Quick responses via WhatsApp</p>
+                <a href="https://wa.me/919729940324" target="_blank" style="font-size: 1.2rem;">Chat Now</a>
+            </div>
+
+            <div class="contact-box">
+                <i class="fas fa-envelope contact-icon"></i>
+                <h3>Email</h3>
+                <p>Send us an email anytime</p>
+                <a href="mailto:info@khatushyamcarbazaar.com">info@khatushyamcarbazaar.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <a href="https://wa.me/919729940324" target="_blank" class="fab fab-whatsapp">
+            <i class="fab fa-whatsapp"></i>
+            <span class="fab-tooltip">Chat on WhatsApp</span>
+        </a>
+        <a href="https://www.instagram.com/khatu_shyam_car_bazaar?igsh=MTE3ajQ4eWlqbDVuOQ%3D%3D&utm_source=qr" target="_blank" class="fab fab-instagram">
+            <i class="fab fa-instagram"></i>
+            <span class="fab-tooltip">Follow on Instagram</span>
+        </a>
+        <a href="https://www.facebook.com/share/1E9e6dqdWC/?mibextid=wwXIfr" target="_blank" class="fab fab-facebook">
+            <i class="fab fa-facebook-f"></i>
+            <span class="fab-tooltip">Follow on Facebook</span>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/share/1E9e6dqdWC/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/khatu_shyam_car_bazaar?igsh=MTE3ajQ4eWlqbDVuOQ%3D%3D&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/919729940324" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:info@khatushyamcarbazaar.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2024 Khatu Shyam Car Bazaar. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.9rem;">Owned by Michael Richardson | <a href="tel:+919729940324" style="color: var(--accent);">+91 97299 40324</a></p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'var(--primary)';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.padding = '1rem';
+                navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.3)';
+            }
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 26, 46, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)';
+            }
+        });
+    </script>
+</body>
+</html>
