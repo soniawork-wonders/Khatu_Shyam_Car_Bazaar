@@ -278,6 +278,7 @@
             font-size: 0.9rem;
             color: #666;
             margin-bottom: 1rem;
+            flex-wrap: wrap;
         }
 
         .car-specs span {
@@ -305,49 +306,6 @@
 
         .whatsapp-btn:hover {
             background: #128c7e;
-        }
-
-        /* Owner Section */
-        .owner-section {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 5rem 2rem;
-        }
-
-        .owner-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .owner-image {
-            width: 100%;
-            max-width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .owner-info h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .owner-title {
-            color: var(--accent);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .owner-bio {
-            color: #555;
-            line-height: 1.8;
-            font-size: 1.1rem;
         }
 
         /* Reviews Section */
@@ -581,15 +539,6 @@
                 font-size: 2rem;
             }
 
-            .owner-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .owner-image {
-                margin: 0 auto;
-            }
-
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -639,7 +588,7 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Find Your Dream Car Today</h1>
-            <p>Premium new & used vehicles at unbeatable prices</p>
+            <p>Affordable new & used cars for every Indian family</p>
             <div class="cta-buttons">
                 <a href="#new-cars" class="btn btn-primary">
                     <i class="fas fa-car"></i> View Inventory
@@ -657,17 +606,17 @@
         <div class="inventory-grid">
             <div class="car-card">
                 <span class="car-badge">NEW</span>
-                <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=600" alt="BMW M4" class="car-image">
+                <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600" alt="Maruti Swift" class="car-image">
                 <div class="car-info">
-                    <h3 class="car-title">BMW M4 Competition</h3>
+                    <h3 class="car-title">Maruti Suzuki Swift</h3>
                     <p class="car-year">2024 Model</p>
-                    <p class="car-price">₹85,00,000</p>
+                    <p class="car-price">₹6,50,000</p>
                     <div class="car-specs">
                         <span><i class="fas fa-road"></i> 0 km</span>
                         <span><i class="fas fa-gas-pump"></i> Petrol</span>
-                        <span><i class="fas fa-cog"></i> Auto</span>
+                        <span><i class="fas fa-cog"></i> Manual</span>
                     </div>
-                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20BMW%20M4%20Competition" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Maruti%20Swift" class="whatsapp-btn" target="_blank">
                         <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
                     </a>
                 </div>
@@ -675,17 +624,17 @@
 
             <div class="car-card">
                 <span class="car-badge">NEW</span>
-                <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600" alt="Mercedes C-Class" class="car-image">
+                <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=600" alt="Hyundai i20" class="car-image">
                 <div class="car-info">
-                    <h3 class="car-title">Mercedes-Benz C-Class</h3>
+                    <h3 class="car-title">Hyundai i20 Asta</h3>
                     <p class="car-year">2024 Model</p>
-                    <p class="car-price">₹55,00,000</p>
+                    <p class="car-price">₹9,20,000</p>
                     <div class="car-specs">
                         <span><i class="fas fa-road"></i> 0 km</span>
-                        <span><i class="fas fa-gas-pump"></i> Hybrid</span>
+                        <span><i class="fas fa-gas-pump"></i> Petrol</span>
                         <span><i class="fas fa-cog"></i> Auto</span>
                     </div>
-                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Mercedes%20C-Class" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Hyundai%20i20" class="whatsapp-btn" target="_blank">
                         <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
                     </a>
                 </div>
@@ -693,17 +642,17 @@
 
             <div class="car-card">
                 <span class="car-badge">NEW</span>
-                <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=600" alt="Audi A4" class="car-image">
+                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600" alt="Tata Nexon" class="car-image">
                 <div class="car-info">
-                    <h3 class="car-title">Audi A4 Quattro</h3>
+                    <h3 class="car-title">Tata Nexon XM</h3>
                     <p class="car-year">2024 Model</p>
-                    <p class="car-price">₹48,00,000</p>
+                    <p class="car-price">₹9,50,000</p>
                     <div class="car-specs">
                         <span><i class="fas fa-road"></i> 0 km</span>
                         <span><i class="fas fa-gas-pump"></i> Petrol</span>
-                        <span><i class="fas fa-cog"></i> Auto</span>
+                        <span><i class="fas fa-cog"></i> Manual</span>
                     </div>
-                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Audi%20A4" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Tata%20Nexon" class="whatsapp-btn" target="_blank">
                         <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
                     </a>
                 </div>
@@ -717,17 +666,17 @@
         <div class="inventory-grid">
             <div class="car-card">
                 <span class="car-badge used">USED</span>
-                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600" alt="Chevrolet Camaro" class="car-image">
+                <img src="https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?auto=format&fit=crop&w=600" alt="Honda City" class="car-image">
                 <div class="car-info">
-                    <h3 class="car-title">Chevrolet Camaro SS</h3>
-                    <p class="car-year">2021 Model</p>
-                    <p class="car-price">₹42,00,000</p>
+                    <h3 class="car-title">Honda City VX</h3>
+                    <p class="car-year">2020 Model</p>
+                    <p class="car-price">₹7,80,000</p>
                     <div class="car-specs">
-                        <span><i class="fas fa-road"></i> 15,000 km</span>
+                        <span><i class="fas fa-road"></i> 35,000 km</span>
                         <span><i class="fas fa-gas-pump"></i> Petrol</span>
                         <span><i class="fas fa-cog"></i> Manual</span>
                     </div>
-                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Chevrolet%20Camaro" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Honda%20City" class="whatsapp-btn" target="_blank">
                         <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
                     </a>
                 </div>
@@ -735,17 +684,17 @@
 
             <div class="car-card">
                 <span class="car-badge used">USED</span>
-                <img src="https://images.unsplash.com/photo-1563720360172-67b8f3dce741?auto=format&fit=crop&w=600" alt="Ford Mustang" class="car-image">
+                <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=600" alt="Maruti Baleno" class="car-image">
                 <div class="car-info">
-                    <h3 class="car-title">Ford Mustang GT</h3>
-                    <p class="car-year">2020 Model</p>
-                    <p class="car-price">₹38,50,000</p>
+                    <h3 class="car-title">Maruti Baleno Alpha</h3>
+                    <p class="car-year">2021 Model</p>
+                    <p class="car-price">₹6,20,000</p>
                     <div class="car-specs">
-                        <span><i class="fas fa-road"></i> 22,000 km</span>
+                        <span><i class="fas fa-road"></i> 28,000 km</span>
                         <span><i class="fas fa-gas-pump"></i> Petrol</span>
                         <span><i class="fas fa-cog"></i> Auto</span>
                     </div>
-                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Ford%20Mustang" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Maruti%20Baleno" class="whatsapp-btn" target="_blank">
                         <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
                     </a>
                 </div>
@@ -753,40 +702,18 @@
 
             <div class="car-card">
                 <span class="car-badge used">USED</span>
-                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600" alt="Honda Civic" class="car-image">
+                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600" alt="Hyundai Creta" class="car-image">
                 <div class="car-info">
-                    <h3 class="car-title">Honda Civic Type R</h3>
-                    <p class="car-year">2022 Model</p>
-                    <p class="car-price">₹35,00,000</p>
+                    <h3 class="car-title">Hyundai Creta SX</h3>
+                    <p class="car-year">2019 Model</p>
+                    <p class="car-price">₹9,50,000</p>
                     <div class="car-specs">
-                        <span><i class="fas fa-road"></i> 8,000 km</span>
-                        <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                        <span><i class="fas fa-road"></i> 42,000 km</span>
+                        <span><i class="fas fa-gas-pump"></i> Diesel</span>
                         <span><i class="fas fa-cog"></i> Manual</span>
                     </div>
-                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Honda%20Civic" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/919729940324?text=I'm%20interested%20in%20the%20Hyundai%20Creta" class="whatsapp-btn" target="_blank">
                         <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Owner Section -->
-    <section class="owner-section">
-        <div class="owner-container">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400" alt="Owner" class="owner-image">
-            <div class="owner-info">
-                <h2>Michael Richardson</h2>
-                <p class="owner-title">Founder & CEO</p>
-                <p class="owner-bio">
-                    With over 25 years of experience in the automotive industry, Michael founded Khatu Shyam Car Bazaar with a simple mission: to provide high-quality vehicles at fair prices with exceptional customer service. His hands-on approach ensures that every car meets our rigorous standards before reaching the showroom floor. Visit us today and experience the Khatu Shyam Car Bazaar difference.
-                </p>
-                <div style="margin-top: 1.5rem;">
-                    <a href="tel:+919729940324" class="btn btn-primary" style="margin-right: 1rem;">
-                        <i class="fas fa-phone"></i> Call Now: 97299 40324
-                    </a>
-                    <a href="mailto:info@khatushyamcarbazaar.com" class="btn btn-secondary" style="border-color: var(--primary); color: var(--primary);">
-                        <i class="fas fa-envelope"></i> Email
                     </a>
                 </div>
             </div>
@@ -806,10 +733,10 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <p class="review-text">
-                    Absolutely fantastic experience! Michael helped me find the perfect BMW within my budget. The entire process was smooth and transparent. Highly recommend Khatu Shyam Car Bazaar to anyone looking for a quality vehicle.
+                    Got an amazing deal on a used Honda City. The car was in excellent condition and the paperwork was handled smoothly. Highly recommend Khatu Shyam Car Bazaar for budget-friendly cars!
                 </p>
-                <p class="reviewer-name">James Wilson</p>
-                <p class="review-date">Purchased: BMW M4</p>
+                <p class="reviewer-name">Rahul Sharma</p>
+                <p class="review-date">Purchased: Honda City VX</p>
             </div>
 
             <div class="review-card">
@@ -821,10 +748,10 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <p class="review-text">
-                    Best dealership in town! The WhatsApp integration made it so easy to ask questions before visiting. The used car I bought was in immaculate condition, just as described. Fair pricing and no hidden fees.
+                    Best place to buy affordable cars in the city. I bought a new Swift at a great price. The staff is honest and transparent about pricing. No hidden charges at all!
                 </p>
-                <p class="reviewer-name">Sarah Martinez</p>
-                <p class="review-date">Purchased: Honda Civic Type R</p>
+                <p class="reviewer-name">Priya Patel</p>
+                <p class="review-date">Purchased: Maruti Swift</p>
             </div>
 
             <div class="review-card">
@@ -836,10 +763,10 @@
                     <i class="fas fa-star-half-alt"></i>
                 </div>
                 <p class="review-text">
-                    Great selection of both new and used cars. The location is easy to find and the staff is knowledgeable. They helped me secure financing quickly. Will definitely return for my next purchase.
+                    Very good collection of mid-range cars. I found a well-maintained Creta within my budget. The WhatsApp inquiry feature made it easy to check availability before visiting.
                 </p>
-                <p class="reviewer-name">Robert Chen</p>
-                <p class="review-date">Purchased: Mercedes C-Class</p>
+                <p class="reviewer-name">Amit Verma</p>
+                <p class="review-date">Purchased: Hyundai Creta SX</p>
             </div>
         </div>
     </section>
@@ -854,7 +781,11 @@
                 <p>Call us anytime during business hours</p>
                 <a href="tel:+919729940324">+91 97299 40324</a>
                 <br><br>
-                <p style="font-size: 0.9rem; opacity: 0.8;">Mon-Sat: 9AM - 7PM<br>Sunday: Closed</p>
+                <a href="tel:+919729940324" class="btn btn-primary" style="margin-top: 0.5rem; display: inline-flex;">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+                <br>
+                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">Mon-Sat: 9AM - 7PM<br>Sunday: Closed</p>
             </div>
 
             <div class="contact-box">
@@ -907,7 +838,7 @@
             <a href="mailto:info@khatushyamcarbazaar.com"><i class="fas fa-envelope"></i></a>
         </div>
         <p>&copy; 2024 Khatu Shyam Car Bazaar. All rights reserved.</p>
-        <p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.9rem;">Owned by Michael Richardson | <a href="tel:+919729940324" style="color: var(--accent);">+91 97299 40324</a></p>
+        <p style="margin-top: 0.5rem; opacity: 0.8; font-size: 0.9rem;"><a href="tel:+919729940324" style="color: var(--accent);">+91 97299 40324</a></p>
     </footer>
 
     <script>
